@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6230a94e9468b5ecd8b7a7b12c9fafb",
+    "content-hash": "1f13cf5ef1f3e3acc55f74a413e4e67b",
     "packages": [
         {
             "name": "brick/math",
@@ -831,22 +831,22 @@
         },
         {
             "name": "google/cloud-vision",
-            "version": "v1.10.3",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-vision.git",
-                "reference": "8d01d61c04571e2cf85f6823af45f9fcbe693b9f"
+                "reference": "da05f701b12c1865282ecd66d5853016286f9c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/8d01d61c04571e2cf85f6823af45f9fcbe693b9f",
-                "reference": "8d01d61c04571e2cf85f6823af45f9fcbe693b9f",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/da05f701b12c1865282ecd66d5853016286f9c9e",
+                "reference": "da05f701b12c1865282ecd66d5853016286f9c9e",
                 "shasum": ""
             },
             "require": {
                 "google/cloud-core": "^1.57",
-                "google/gax": "^1.36.0",
-                "php": "^8.0"
+                "google/gax": "^1.38.0",
+                "php": "^8.1"
             },
             "require-dev": {
                 "erusev/parsedown": "^1.6",
@@ -883,9 +883,9 @@
             ],
             "description": "Cloud Vision Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-vision/tree/v1.10.3"
+                "source": "https://github.com/googleapis/google-cloud-php-vision/tree/v2.1.1"
             },
-            "time": "2025-01-24T21:24:06+00:00"
+            "time": "2025-10-07T18:41:09+00:00"
         },
         {
             "name": "google/common-protos",
@@ -10783,5 +10783,5 @@
         "php": "^8.2"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
