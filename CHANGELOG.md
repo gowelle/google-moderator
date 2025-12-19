@@ -7,15 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.1.0] - 2024-12-19
-
-### Added
-- `ContentFlagged` event dispatched when content is flagged as unsafe
-- Events configuration option to enable/disable event dispatching
-- GitHub Actions CI workflow (PHP 8.2-8.4, Laravel 10-12 matrix)
-- PHPStan and Pint checks in CI
-- Dependabot configuration for automated dependency updates
-
 ## [1.0.0] - 2024-12-19
 
 ### Added
@@ -31,4 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Artisan commands for blocklist import/export
 - ModerationResult DTO with rich filtering API
 - FlaggedTerm DTO with source tracking
+- `ContentFlagged` event dispatched when content is flagged as unsafe
+- Events configuration option to enable/disable event dispatching
+- GitHub Actions CI workflow (PHP 8.2-8.4, Laravel 10-12 matrix)
+- PHPStan and Pint checks in CI
+- Dependabot configuration for automated dependency updates
 - Comprehensive unit and integration tests
