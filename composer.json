@@ -31,12 +31,13 @@
         "google/cloud-vision": "^1.8"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "laravel/framework": "12.*",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0",
         "pestphp/pest": "^2.0|^3.0",
         "pestphp/pest-plugin-laravel": "^2.0|^3.0",
-        "laravel/pint": "^1.0",
-        "phpstan/phpstan": "^1.0",
         "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0"
     },
@@ -51,7 +52,7 @@
         }
     },
     "scripts": {
-        "analyse": "vendor/bin/phpstan analyse",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=2G",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint",
