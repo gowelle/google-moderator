@@ -1,0 +1,21 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method body\\(\\) on null\\.$#"
+			count: 1
+			path: src/Engines/GeminiVisionEngine.php
+
+		-
+			message: "#^Cannot call method header\\(\\) on null\\.$#"
+			count: 1
+			path: src/Engines/GeminiVisionEngine.php
+
+		-
+			message: "#^Cannot call method successful\\(\\) on null\\.$#"
+			count: 1
+			path: src/Engines/GeminiVisionEngine.php
+
+		-
+			message: "#^Result of static method Illuminate\\\\Support\\\\Facades\\\\Http\\:\\:get\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: src/Engines/GeminiVisionEngine.php

@@ -1,0 +1,15 @@
+{
+    "language": "en",
+    "terms": [
+        {
+            "value": "example_bad_word",
+            "severity": "high",
+            "is_regex": false
+        },
+        {
+            "value": "*offensive*",
+            "severity": "medium",
+            "is_regex": false
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "language": "sw",
+    "terms": [
+        {
+            "value": "mfano_neno_baya",
+            "severity": "high",
+            "is_regex": false
+        },
+        {
+            "value": "*kuchukiza*",
+            "severity": "medium",
+            "is_regex": false
+        }
+    ]
+}
