@@ -6,7 +6,8 @@ namespace Gowelle\GoogleModerator\Engines;
 
 use Google\Cloud\Language\V1\Document;
 use Google\Cloud\Language\V1\Document\Type;
-use Google\Cloud\Language\V1\LanguageServiceClient;
+use Google\Cloud\Language\V1\Client\LanguageServiceClient;
+use Google\Cloud\Language\V1\ModerateTextRequest;
 use Gowelle\GoogleModerator\Contracts\TextModerationEngine;
 use Gowelle\GoogleModerator\DTOs\FlaggedTerm;
 use Gowelle\GoogleModerator\DTOs\ModerationResult;
@@ -75,7 +76,10 @@ class NaturalLanguageEngine implements TextModerationEngine
                 $document->setLanguage($language);
             }
 
-            $response = $this->client->moderateText($document);
+            $request = (new ModerateTextRequest())
+                ->setDocument($document);
+
+            $response = $this->client->moderateText($request);
             $categories = $response->getModerationCategories();
 
             $flags = [];

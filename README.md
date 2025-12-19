@@ -3,7 +3,8 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/gowelle/google-moderator.svg?style=flat-square)](https://packagist.org/packages/gowelle/google-moderator)
 [![Total Downloads](https://img.shields.io/packagist/dt/gowelle/google-moderator.svg?style=flat-square)](https://packagist.org/packages/gowelle/google-moderator)
 [![PHP Version](https://img.shields.io/packagist/php-v/gowelle/google-moderator.svg?style=flat-square)](https://packagist.org/packages/gowelle/google-moderator)
-[![License](https://img.shields.io/packagist/l/gowelle/google-moderator.svg?style=flat-square)](LICENSE.md)
+[![Tests](https://github.com/gowelle/google-moderator/actions/workflows/tests.yml/badge.svg?style=flat-square)](https://github.com/gowelle/google-moderator/actions/workflows/tests.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
 
 A Laravel package for **text and image moderation** using Google AI APIs, with opt-in blocklists, multi-language support, and internal engine switching.
 
