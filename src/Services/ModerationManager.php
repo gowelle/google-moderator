@@ -263,7 +263,7 @@ class ModerationManager
         // Check if events are enabled
         $eventsEnabled = $this->config['events']['enabled'] ?? true;
 
-        if (! $eventsEnabled) {
+        if (!$eventsEnabled) {
             return;
         }
 

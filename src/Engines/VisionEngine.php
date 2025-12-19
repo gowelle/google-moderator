@@ -30,8 +30,6 @@ class VisionEngine implements ImageModerationEngine
      */
     private array $thresholds;
 
-
-
     /**
      * Mapping of threshold strings to minimum likelihood level.
      */

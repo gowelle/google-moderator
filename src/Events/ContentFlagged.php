@@ -25,11 +25,11 @@ class ContentFlagged
     use SerializesModels;
 
     /**
-     * @param ModerationResult $result The moderation result containing flags
-     * @param string $type The content type: 'text' or 'image'
-     * @param string|null $content The original content (text or image path)
-     * @param string|null $language The language code (for text moderation)
-     * @param array<string, mixed> $metadata Additional context metadata
+     * @param  ModerationResult  $result  The moderation result containing flags
+     * @param  string  $type  The content type: 'text' or 'image'
+     * @param  string|null  $content  The original content (text or image path)
+     * @param  string|null  $language  The language code (for text moderation)
+     * @param  array<string, mixed>  $metadata  Additional context metadata
      */
     public function __construct(
         public readonly ModerationResult $result,
@@ -64,7 +64,7 @@ class ContentFlagged
     {
         return array_unique(array_map(
             fn ($flag) => $flag->category,
-            $this->result->flags()
+            $this->result->flags(),
         ));
     }
 
