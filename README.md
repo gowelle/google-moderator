@@ -226,15 +226,50 @@ Configure sensitivity per category:
 ],
 ```
 
-## Events (Coming Soon)
+## Events
+
+The package dispatches a `ContentFlagged` event whenever content is flagged as unsafe:
 
 ```php
-// Listen for moderation events
-Event::listen(ContentFlagged::class, function ($event) {
+use Gowelle\GoogleModerator\Events\ContentFlagged;
+use Illuminate\Support\Facades\Event;
+
+// In your EventServiceProvider or listener
+Event::listen(ContentFlagged::class, function (ContentFlagged $event) {
     Log::warning('Unsafe content detected', [
+        'type' => $event->type,           // 'text' or 'image'
+        'categories' => $event->categories(),
+        'is_high_severity' => $event->isHighSeverity(),
         'flags' => $event->result->flags(),
     ]);
+    
+    // Take action: notify moderators, block submission, etc.
 });
+```
+
+### ContentFlagged Event Properties
+
+```php
+$event->result;      // ModerationResult DTO
+$event->type;        // 'text' or 'image'
+$event->content;     // Original text or image path
+$event->language;    // Language code (for text)
+$event->metadata;    // Additional context
+
+// Helper methods
+$event->isText();           // bool
+$event->isImage();          // bool
+$event->categories();       // array of flagged categories
+$event->isHighSeverity();   // bool
+```
+
+### Disabling Events
+
+```php
+// config/google-moderator.php
+'events' => [
+    'enabled' => false,
+],
 ```
 
 ## Testing

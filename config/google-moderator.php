@@ -160,4 +160,18 @@ return [
         'channel' => env('GOOGLE_MODERATOR_LOG_CHANNEL'),
         'log_safe_content' => false, // Only log unsafe content by default
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Events
+    |--------------------------------------------------------------------------
+    |
+    | Configure event dispatching for content moderation.
+    | When enabled, ContentFlagged events are dispatched for unsafe content.
+    |
+    */
+
+    'events' => [
+        'enabled' => env('GOOGLE_MODERATOR_EVENTS_ENABLED', true),
+    ],
 ];

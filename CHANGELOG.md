@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- ContentFlagged event dispatched when content is flagged as unsafe
+- Events configuration option to enable/disable event dispatching
+
 ## [1.0.0] - 2024-12-19
 
 ### Added

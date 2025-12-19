@@ -15,6 +15,7 @@ use Gowelle\GoogleModerator\Engines\GeminiTextEngine;
 use Gowelle\GoogleModerator\Engines\GeminiVisionEngine;
 use Gowelle\GoogleModerator\Engines\NaturalLanguageEngine;
 use Gowelle\GoogleModerator\Engines\VisionEngine;
+use Gowelle\GoogleModerator\Events\ContentFlagged;
 use Gowelle\GoogleModerator\Exceptions\ModerationException;
 use Illuminate\Support\Facades\Log;
 
@@ -71,6 +72,9 @@ class ModerationManager
         // Log if configured
         $this->logResult('text', $result);
 
+        // Dispatch event if content is flagged
+        $this->dispatchFlaggedEvent('text', $result, $text, $language);
+
         return $result;
     }
 
@@ -85,6 +89,10 @@ class ModerationManager
 
         // Log if configured
         $this->logResult('image', $result);
+
+        // Dispatch event if content is flagged
+        $imagePath = is_string($image) ? $image : null;
+        $this->dispatchFlaggedEvent('image', $result, $imagePath);
 
         return $result;
     }
@@ -241,5 +249,29 @@ class ModerationManager
             'engine' => $result->engine,
             'flags' => array_map(fn ($f) => $f->toArray(), $result->flags()),
         ]);
+    }
+
+    /**
+     * Dispatch ContentFlagged event if content is flagged.
+     */
+    private function dispatchFlaggedEvent(
+        string $type,
+        ModerationResult $result,
+        ?string $content = null,
+        ?string $language = null,
+    ): void {
+        // Check if events are enabled
+        $eventsEnabled = $this->config['events']['enabled'] ?? true;
+
+        if (! $eventsEnabled) {
+            return;
+        }
+
+        // Only dispatch if content is unsafe
+        if ($result->isSafe()) {
+            return;
+        }
+
+        ContentFlagged::dispatch($result, $type, $content, $language);
     }
 }
