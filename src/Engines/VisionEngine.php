@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Gowelle\GoogleModerator\Engines;
 
+use Google\Cloud\Vision\V1\AnnotateImageRequest;
+use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
+use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
 use Google\Cloud\Vision\V1\Feature;
 use Google\Cloud\Vision\V1\Feature\Type;
 use Google\Cloud\Vision\V1\Image;
-use Google\Cloud\Vision\V1\ImageAnnotatorClient;
 use Google\Cloud\Vision\V1\Likelihood;
 use Gowelle\GoogleModerator\Contracts\ImageModerationEngine;
 use Gowelle\GoogleModerator\DTOs\FlaggedTerm;
@@ -57,15 +59,25 @@ class VisionEngine implements ImageModerationEngine
 
             $feature = (new Feature)->setType(Type::SAFE_SEARCH_DETECTION);
 
-            $response = $this->client->annotateImage($imageObject, [$feature]);
+            $annotateRequest = (new AnnotateImageRequest)
+                ->setImage($imageObject)
+                ->setFeatures([$feature]);
 
-            if ($response->hasError()) {
-                $error = $response->getError();
+            $batchRequest = (new BatchAnnotateImagesRequest)
+                ->setRequests([$annotateRequest]);
+
+            $response = $this->client->batchAnnotateImages($batchRequest);
+            
+            /** @var \Google\Cloud\Vision\V1\AnnotateImageResponse $result */
+            $result = $response->getResponses()[0];
+
+            if ($result->hasError()) {
+                $error = $result->getError();
                 $message = $error !== null ? $error->getMessage() : 'Unknown error';
                 throw ModerationException::apiError('vision', $message);
             }
 
-            $safeSearch = $response->getSafeSearchAnnotation();
+            $safeSearch = $result->getSafeSearchAnnotation();
 
             if ($safeSearch === null) {
                 return ModerationResult::safe('google', 'vision');
