@@ -27,7 +27,7 @@ A Laravel package for **text and image moderation** using Google AI APIs, with o
 
 - 🔤 **Text Moderation** - Analyze text for toxic, harmful, or inappropriate content
 - 🖼️ **Image Moderation** - Detect adult, violent, or racy content in images
-- 🌍 **Multi-Language Support** - Works with any language (Swahili-first, but not limited)
+- 🌍 **Multi-Language Support** - Swahili-first, with support for any language via custom blocklists
 - 📋 **Custom Blocklists** - File or database-backed blocklists with regex support
 - 🔄 **Engine Switching** - Switch between Natural Language API, Vision API, or Gemini
 - ⚡ **Caching** - Built-in caching for blocklist terms
@@ -199,7 +199,30 @@ php artisan vendor:publish --tag="google-moderator-blocklists"
 
 ### Database Blocklists
 
-Store terms in the database for easy management via admin panels:
+Store terms in the database for easy management via admin panels.
+
+> [!NOTE]
+> **Architecture Note**: This package uses `DB::table('blocklist_terms')` directly for performance and does **not** include an Eloquent model. You can interact with the table using the `DB` facade or the provided Blocklist repository methods.
+
+Ensure you have run the migrations:
+
+```bash
+php artisan migrate
+```
+
+Table schema structure:
+
+```php
+// Example of accessing the table directly
+DB::table('blocklist_terms')->insert([
+    'language' => 'sw',         // string(10)
+    'value' => 'bad_word',      // string
+    'severity' => 'high',       // enum('low', 'medium', 'high')
+    'is_regex' => false,        // boolean
+    'created_at' => now(),
+    'updated_at' => now(),
+]);
+```
 
 ```php
 // Add terms programmatically
