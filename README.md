@@ -7,6 +7,21 @@
 
 A Laravel package for **text and image moderation** using Google AI APIs, with opt-in blocklists, multi-language support, and internal engine switching.
 
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Quick Start](#quick-start)
+- [ModerationResult API](#moderationresult-api)
+- [Blocklists](#blocklists)
+- [Engine Comparison](#engine-comparison)
+- [Thresholds](#thresholds)
+- [Events](#events)
+- [Testing](#testing)
+- [Changelog](#changelog)
+
 ## Features
 
 - 🔤 **Text Moderation** - Analyze text for toxic, harmful, or inappropriate content
@@ -141,6 +156,15 @@ json_encode($result);
 
 ## Blocklists
 
+> **💡 Bonus Feature**: Google APIs don't provide customizable term blocking. This package includes a complete blocklist system so you can catch domain-specific terms, slang, or phrases that the AI might miss.
+
+### Why Blocklists?
+
+- **Domain-specific terms** - Block product names, competitor mentions, or industry jargon
+- **Regional slang** - Catch offensive terms in local dialects (especially useful for Swahili and other languages)
+- **Zero-tolerance words** - Instantly flag specific terms regardless of AI confidence
+- **Runs after AI analysis** - Combines AI intelligence with your custom rules
+
 ### Enabling Blocklists
 
 ```php
@@ -174,15 +198,18 @@ php artisan vendor:publish --tag="google-moderator-blocklists"
 
 ### Database Blocklists
 
-Import terms from JSON:
+Store terms in the database for easy management via admin panels:
+
+```php
+// Add terms programmatically
+Moderation::blocklist()->addTerm('sw', 'neno_baya', 'high');
+Moderation::blocklist()->addTerm('en', '*spam*', 'medium');
+```
+
+Import/export via Artisan:
 
 ```bash
 php artisan moderator:blocklist:import storage/blocklists/sw.json --language=sw
-```
-
-Export terms to JSON:
-
-```bash
 php artisan moderator:blocklist:export --language=sw --output=exported.json
 ```
 
