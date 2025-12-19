@@ -67,7 +67,7 @@ class VisionEngine implements ImageModerationEngine
                 ->setRequests([$annotateRequest]);
 
             $response = $this->client->batchAnnotateImages($batchRequest);
-            
+
             /** @var \Google\Cloud\Vision\V1\AnnotateImageResponse $result */
             $result = $response->getResponses()[0];
 
