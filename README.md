@@ -15,6 +15,7 @@ A Laravel package for **text and image moderation** using Google AI APIs, with o
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Quick Start](#quick-start)
+- [Validation Rules](#validation-rules)
 - [ModerationResult API](#moderationresult-api)
 - [Blocklists](#blocklists)
 - [Engine Comparison](#engine-comparison)
@@ -124,6 +125,37 @@ $result = Moderation::image('https://example.com/image.jpg');
 if ($result->isUnsafe()) {
     // Handle unsafe image
 }
+```
+
+## Validation Rules
+
+The package provides custom Laravel validation rules for easy integration into your requests and validators.
+
+### ModeratedText
+
+Validates that a string is safe according to your configured text engines and blocklists.
+
+```php
+use Gowelle\GoogleModerator\Rules\ModeratedText;
+
+$request->validate([
+    'bio' => ['required', 'string', new ModeratedText()],
+    
+    // With custom failure message
+    'comment' => ['required', new ModeratedText('Please be polite.')],
+]);
+```
+
+### ModeratedImage
+
+Validates pictures (uploads, paths, or URLs) against image moderation engines.
+
+```php
+use Gowelle\GoogleModerator\Rules\ModeratedImage;
+
+$request->validate([
+    'avatar' => ['required', 'image', new ModeratedImage()],
+]);
 ```
 
 ## ModerationResult API

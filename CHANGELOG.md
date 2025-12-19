@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-12-20
+
+### Added
+- Custom Laravel validators: `ModeratedText` and `ModeratedImage`
+- Documentation for validation rules in README
+
 ## [1.0.0] - 2025-12-19
 
 ### Added
