@@ -773,16 +773,16 @@
         },
         {
             "name": "google/cloud-language",
-            "version": "v1.1.4",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-language.git",
-                "reference": "43c5da92edb9b4b637afe4d13adec4879851f892"
+                "reference": "eba6b8f02ef2175279b63b1c7f7703961b23c0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-language/zipball/43c5da92edb9b4b637afe4d13adec4879851f892",
-                "reference": "43c5da92edb9b4b637afe4d13adec4879851f892",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-language/zipball/eba6b8f02ef2175279b63b1c7f7703961b23c0dc",
+                "reference": "eba6b8f02ef2175279b63b1c7f7703961b23c0dc",
                 "shasum": ""
             },
             "require": {
@@ -825,9 +825,9 @@
             ],
             "description": "Cloud Natural Language Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-language/tree/v1.1.4"
+                "source": "https://github.com/googleapis/google-cloud-php-language/tree/v1.2.0"
             },
-            "time": "2026-01-16T19:46:18+00:00"
+            "time": "2026-03-17T23:07:39+00:00"
         },
         {
             "name": "google/cloud-vision",
