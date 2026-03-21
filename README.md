@@ -36,8 +36,8 @@ A Laravel package for **text and image moderation** using Google AI APIs, with o
 
 ## Requirements
 
-- PHP 8.2+
-- Laravel 10.x, 11.x, or 12.x
+- PHP 8.3+
+- Laravel 11.x, 12.x, or 13.x
 - Google Cloud account with enabled APIs
 
 ## Installation

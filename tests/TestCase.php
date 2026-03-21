@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gowelle\GoogleModerator\Tests;
 
+use Gowelle\GoogleModerator\Facades\Moderation;
 use Gowelle\GoogleModerator\GoogleModeratorServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -24,7 +25,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageAliases($app): array
     {
         return [
-            'Moderation' => \Gowelle\GoogleModerator\Facades\Moderation::class,
+            'Moderation' => Moderation::class,
         ];
     }
 

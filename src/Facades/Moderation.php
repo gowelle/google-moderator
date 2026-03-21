@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static ModerationResult image(mixed $image)
  * @method static BlocklistRepository|null blocklist()
  *
- * @see \Gowelle\GoogleModerator\Services\ModerationManager
+ * @see ModerationManager
  */
 class Moderation extends Facade
 {

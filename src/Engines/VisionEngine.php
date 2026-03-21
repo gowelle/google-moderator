@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Gowelle\GoogleModerator\Engines;
 
 use Google\Cloud\Vision\V1\AnnotateImageRequest;
+use Google\Cloud\Vision\V1\AnnotateImageResponse;
 use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
 use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
 use Google\Cloud\Vision\V1\Feature;
 use Google\Cloud\Vision\V1\Feature\Type;
 use Google\Cloud\Vision\V1\Image;
+use Google\Cloud\Vision\V1\ImageSource;
 use Google\Cloud\Vision\V1\Likelihood;
 use Gowelle\GoogleModerator\Contracts\ImageModerationEngine;
 use Gowelle\GoogleModerator\DTOs\FlaggedTerm;
@@ -68,7 +70,7 @@ class VisionEngine implements ImageModerationEngine
 
             $response = $this->client->batchAnnotateImages($batchRequest);
 
-            /** @var \Google\Cloud\Vision\V1\AnnotateImageResponse $result */
+            /** @var AnnotateImageResponse $result */
             $result = $response->getResponses()[0];
 
             if ($result->hasError()) {
@@ -141,7 +143,7 @@ class VisionEngine implements ImageModerationEngine
             // Check if it's a URL
             if (filter_var($image, FILTER_VALIDATE_URL)) {
                 $imageObject->setSource(
-                    (new \Google\Cloud\Vision\V1\ImageSource)->setImageUri($image),
+                    (new ImageSource)->setImageUri($image),
                 );
             }
             // Check if it's a file path

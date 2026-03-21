@@ -7,6 +7,7 @@ namespace Gowelle\GoogleModerator\Rules;
 use Closure;
 use Gowelle\GoogleModerator\Facades\Moderation;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Translation\PotentiallyTranslatedString;
 
 class ModeratedText implements ValidationRule
 {
@@ -20,7 +21,7 @@ class ModeratedText implements ValidationRule
     /**
      * Run the validation rule.
      *
-     * @param  Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @param  Closure(string): PotentiallyTranslatedString  $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Gowelle\GoogleModerator\Blocklists\FileBlocklistRepository;
+use Gowelle\GoogleModerator\DTOs\FlaggedTerm;
 use Gowelle\GoogleModerator\DTOs\ModerationResult;
 use Gowelle\GoogleModerator\Services\ModerationManager;
 
@@ -71,7 +72,7 @@ describe('Moderation Pipeline', function () {
         $blocklistResult = new ModerationResult(
             isSafe: false,
             confidence: null,
-            flags: [new \Gowelle\GoogleModerator\DTOs\FlaggedTerm(
+            flags: [new FlaggedTerm(
                 'blocked_term',
                 'blocklist',
                 'high',
