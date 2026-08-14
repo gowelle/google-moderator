@@ -834,16 +834,16 @@
         },
         {
             "name": "google/cloud-vision",
-            "version": "v2.2.1",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-vision.git",
-                "reference": "e1cab8e24fa72264f3ca69d73dfcad9c73a876aa"
+                "reference": "38847a19c284f51b2daaf7127061922051a450bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/e1cab8e24fa72264f3ca69d73dfcad9c73a876aa",
-                "reference": "e1cab8e24fa72264f3ca69d73dfcad9c73a876aa",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/38847a19c284f51b2daaf7127061922051a450bb",
+                "reference": "38847a19c284f51b2daaf7127061922051a450bb",
                 "shasum": ""
             },
             "require": {
@@ -858,7 +858,7 @@
                 "phpdocumentor/reflection-docblock": "^5.3.3||^6.0",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.0",
-                "squizlabs/php_codesniffer": "2.*"
+                "squizlabs/php_codesniffer": "3.*"
             },
             "suggest": {
                 "ext-grpc": "The gRPC extension enables use of the performant gRPC transport",
@@ -886,9 +886,9 @@
             ],
             "description": "Cloud Vision Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-vision/tree/v2.2.1"
+                "source": "https://github.com/googleapis/google-cloud-php-vision/tree/v2.3.0"
             },
-            "time": "2026-05-12T19:06:48+00:00"
+            "time": "2026-08-10T16:39:50+00:00"
         },
         {
             "name": "google/common-protos",
