@@ -853,16 +853,16 @@
         },
         {
             "name": "google/cloud-vision",
-            "version": "v2.3.3",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-vision.git",
-                "reference": "768a489001010cb3cfcf4401689576bc0e506b5d"
+                "reference": "bd70baeda715133c0c8d4c1ea57ad0fb00278b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/768a489001010cb3cfcf4401689576bc0e506b5d",
-                "reference": "768a489001010cb3cfcf4401689576bc0e506b5d",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/bd70baeda715133c0c8d4c1ea57ad0fb00278b57",
+                "reference": "bd70baeda715133c0c8d4c1ea57ad0fb00278b57",
                 "shasum": ""
             },
             "require": {
@@ -905,9 +905,9 @@
             ],
             "description": "Cloud Vision Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-vision/tree/v2.3.3"
+                "source": "https://github.com/googleapis/google-cloud-php-vision/tree/v2.4.0"
             },
-            "time": "2026-09-28T17:51:46+00:00"
+            "time": "2026-10-28T01:51:30+00:00"
         },
         {
             "name": "google/common-protos",
